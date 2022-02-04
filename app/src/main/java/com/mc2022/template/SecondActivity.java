@@ -5,41 +5,41 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Log.i("create","Activity main is onCreate");
+        setContentView(R.layout.activity_second);
+        Log.i("create","Activity second is onCreate");
     }
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("start", "Activity main is onStart");
+        Log.i("start", "Activity second is onStart");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("pause", "Activity main is onPause");
+        Log.i("pause", "Activity second is onPause");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("resume", "Activity main is onResume");
+        Log.i("resume", "Activity second is onResume");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("stop", "Activity main is onStop");
+        Log.i("stop", "Activity second is onStop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("destroy", "Activity main is onDestroy");
+        Log.i("destroy", "Activity second is onDestroy");
     }
 }
