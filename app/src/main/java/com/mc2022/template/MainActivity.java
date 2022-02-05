@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
     Button nextButton;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Button buttonYes;
     Button buttonNo;
     TextView questionText;
+    TextView personName;
+    TextView test;
 
     String fever = "Do you suffer from fever?";
     String runnyNose = "Do you have runny nose?";
@@ -43,8 +47,25 @@ public class MainActivity extends AppCompatActivity {
 
         //Fetching TextView id.
         questionText = (TextView)findViewById(R.id.questionText);
+        personName = (TextView)findViewById(R.id.PersonName);
 
 
+
+//        questionText.setVisibility(View.GONE);
+//        nextButton.setVisibility(View.GONE);
+//        clearButton.setVisibility(View.GONE);
+//        buttonYes.setVisibility(View.GONE);
+//        buttonNo.setVisibility(View.GONE);
+//
+//
+//        String name = personName.getText().toString();
+//        if(name == ""){
+//            questionText.setVisibility(View.INVISIBLE);
+//            nextButton.setVisibility(View.INVISIBLE);
+//            clearButton.setVisibility(View.INVISIBLE);
+//            buttonYes.setVisibility(View.INVISIBLE);
+//            buttonNo.setVisibility(View.INVISIBLE);
+//        }
 
 
 
@@ -53,13 +74,32 @@ public class MainActivity extends AppCompatActivity {
         Log.i("create","Activity main is onCreate");
 
         if(nextCount==0){
+//            questionText.setVisibility(View.VISIBLE);
             questionText.setText(fever);
+//            nextButton.setVisibility(View.VISIBLE);
+//            clearButton.setVisibility(View.VISIBLE);
+//            buttonYes.setVisibility(View.VISIBLE);
+//            buttonNo.setVisibility(View.VISIBLE);
+            buttonYes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+            buttonNo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    
+                }
+            });
+
+
         }
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nextCount = nextCount + 1;
-                if(nextCount == 1){
+                if(nextCount == 1 ){
                     questionText.setText(runnyNose);
                 }
                 if(nextCount == 2){
@@ -79,12 +119,9 @@ public class MainActivity extends AppCompatActivity {
                     nextButton.setText(submit);
 
                 }
-                if(nextCount == 7){
+                if(nextCount >= 7){
                     Intent intent=new Intent(MainActivity.this, SecondActivity.class);
                     startActivity(intent);
-                }
-                if(nextCount > 7){
-                    nextCount = 0;
                 }
             }
         });
