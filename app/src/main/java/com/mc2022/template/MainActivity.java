@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     Button buttonNo;
     TextView questionText;
     TextView personName;
-    TextView test;
 
     String fever = "Do you suffer from fever?";
     String runnyNose = "Do you have runny nose?";
@@ -32,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
     String submit = "SUBMIT";
 
     int nextCount=0;
+    String ansFever;
+    String ansRN;
+    String ansST;
+    String ansBA;
+    String ansHA;
+    String ansLM;
+    String ansTS;
 
 
     @Override
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //        buttonNo.setVisibility(View.GONE);
 //
 //
-//        String name = personName.getText().toString();
+        String name = personName.getText().toString();
 //        if(name == ""){
 //            questionText.setVisibility(View.INVISIBLE);
 //            nextButton.setVisibility(View.INVISIBLE);
@@ -74,22 +80,17 @@ public class MainActivity extends AppCompatActivity {
         Log.i("create","Activity main is onCreate");
 
         if(nextCount==0){
-//            questionText.setVisibility(View.VISIBLE);
             questionText.setText(fever);
-//            nextButton.setVisibility(View.VISIBLE);
-//            clearButton.setVisibility(View.VISIBLE);
-//            buttonYes.setVisibility(View.VISIBLE);
-//            buttonNo.setVisibility(View.VISIBLE);
             buttonYes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    ansFever = "YES";
                 }
             });
             buttonNo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    
+                    ansFever = "NO";
                 }
             });
 
@@ -101,26 +102,106 @@ public class MainActivity extends AppCompatActivity {
                 nextCount = nextCount + 1;
                 if(nextCount == 1 ){
                     questionText.setText(runnyNose);
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansRN = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansRN = "NO";
+                        }
+                    });
                 }
                 if(nextCount == 2){
                     questionText.setText(scratchyThroat);
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansST = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansST = "NO";
+                        }
+                    });
                 }
                 if(nextCount == 3){
                     questionText.setText(bodyAche);
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansBA = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansBA = "NO";
+                        }
+                    });
                 }
                 if(nextCount == 4){
                     questionText.setText(headAche);
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansHA = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansHA = "NO";
+                        }
+                    });
                 }
                 if(nextCount == 5){
                     questionText.setText(looseMotion);
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansLM = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansLM = "NO";
+                        }
+                    });
                 }
                 if(nextCount == 6){
                     questionText.setText(tasteSmell);
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansTS = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ansTS = "NO";
+                        }
+                    });
                     nextButton.setText(submit);
 
                 }
                 if(nextCount >= 7){
                     Intent intent=new Intent(MainActivity.this, SecondActivity.class);
+                    intent.putExtra("ansFever", ansFever);
+                    intent.putExtra("ansRN", ansRN);
+                    intent.putExtra("ansST", ansST);
+                    intent.putExtra("ansBA", ansBA);
+                    intent.putExtra("ansHA", ansHA);
+                    intent.putExtra("ansLM", ansLM);
+                    intent.putExtra("ansTS", ansTS);
+                    intent.putExtra("Pname", name);
                     startActivity(intent);
                 }
             }
