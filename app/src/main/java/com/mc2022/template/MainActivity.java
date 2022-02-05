@@ -69,14 +69,6 @@ public class MainActivity extends AppCompatActivity {
             buttonYes.setVisibility(View.INVISIBLE);
             buttonNo.setVisibility(View.INVISIBLE);
         }
-//        questionText.setVisibility(View.GONE);
-//        nextButton.setVisibility(View.GONE);
-//        clearButton.setVisibility(View.GONE);
-//        buttonYes.setVisibility(View.GONE);
-//        buttonNo.setVisibility(View.GONE);
-//
-//        name = personName.getText().toString();
-//        personName.setText(name);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,11 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
 
         Log.i("create","Activity main is onCreate");
 
