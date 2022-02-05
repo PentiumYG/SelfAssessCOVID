@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         questionText = (TextView)findViewById(R.id.questionText);
         personName = (EditText)findViewById(R.id.PersonName);
 
+        Log.i("create","Activity main is onCreate");
+
         name = personName.getText().toString();
 
 
@@ -79,16 +81,58 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     done.setVisibility(View.INVISIBLE);
+                    nextCount = 0;
                     questionText.setVisibility(View.VISIBLE);
                     nextButton.setVisibility(View.VISIBLE);
                     clearButton.setVisibility(View.VISIBLE);
                     buttonYes.setVisibility(View.VISIBLE);
                     buttonNo.setVisibility(View.VISIBLE);
+                    questionText.setText(fever);
+                    nextButton.setText("NEXT");
+                    buttonYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(name.equals("")){
+                                Toast.makeText(MainActivity.this, "Please enter your name", Toast.LENGTH_SHORT).show();
+                            }
+                            ansFever = "YES";
+                        }
+                    });
+                    buttonNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(name.equals("")){
+                                Toast.makeText(MainActivity.this, "Please enter your name", Toast.LENGTH_SHORT).show();
+                            }
+                            ansFever = "NO";
+                        }
+                    });
                 }
             }
         });
 
-        Log.i("create","Activity main is onCreate");
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nextCount = 0;
+                personName.setText("");
+                ansFever = "";
+                ansRN = "";
+                ansST = "";
+                ansBA = "";
+                ansHA = "";
+                ansLM = "";
+                ansTS = "";
+                done.setVisibility(View.VISIBLE);
+                questionText.setVisibility(View.INVISIBLE);
+                nextButton.setVisibility(View.INVISIBLE);
+                clearButton.setVisibility(View.INVISIBLE);
+                buttonYes.setVisibility(View.INVISIBLE);
+                buttonNo.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
 
         if(nextCount==0){
 
@@ -114,6 +158,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+
+
+
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
