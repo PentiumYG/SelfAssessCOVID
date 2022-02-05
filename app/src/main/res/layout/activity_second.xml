@@ -6,225 +6,269 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:text="NAME:"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"/>
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textStyle="italic"
-                android:textSize="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Symptoms List"
-            android:textStyle="italic|bold"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:fontFamily="sans-serif-smallcaps"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_weight="0.5"
+                    android:text="NAME:"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0.5"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Symptoms List"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="italic|bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Fever"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Runny Nose"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Scratchy Throat"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Body Ache"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Head Ache"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Loose Motion"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:text="Taste and Smell Present"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ansFever"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ansRunnyNose"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ansScratchyThroat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ansBodyAche"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ansHeadAche"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ansLooseMotion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ansTansS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/checkButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Fever"
-                    android:background="@color/gray"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Runny Nose"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Scratchy Throat"
-                    android:background="@color/gray"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Body Ache"
-                    android:padding="5dp" />
-
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="Head Ache"
-                    android:background="@color/gray"
-                    android:padding="5dp"/>
-
-
-            </LinearLayout>
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Check Result" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:layout_marginRight="20dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_margin="20dp">
 
                 <TextView
-                    android:id="@+id/ansFever"
+                    android:id="@+id/result"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
+                    android:layout_weight="0.5"
                     android:fontFamily="sans-serif-smallcaps"
+                    android:padding="5dp"
+                    android:text="RESULT"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="italic|bold" />
 
-                    android:padding="5dp"/>
 
                 <TextView
-                    android:id="@+id/ansRunnyNose"
+                    android:id="@+id/ansResult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
+                    android:layout_weight="0.5"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/ansScratchyThroat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:padding="5dp"
+                    android:text="yjihnhn"
                     android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/ansBodyAche"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/ansHeadAche"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:padding="5dp"/>
-
+                    android:textStyle="italic" />
             </LinearLayout>
+
         </LinearLayout>
-
-        <Button
-            android:id="@+id/checkButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Check Result" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/result"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:layout_weight="0.5"
-                android:fontFamily="sans-serif-smallcaps"
-                android:text="RESULT"
-                android:textStyle="italic|bold"
-                android:padding="5dp"/>
-
-
-
-            <TextView
-                android:id="@+id/ansResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:text="yjihnhn"
-                android:textStyle="italic"
-                android:fontFamily="sans-serif-smallcaps"
-                android:padding="5dp"/>
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
