@@ -20,7 +20,7 @@ public class SecondActivity extends AppCompatActivity {
     TextView ts;
     TextView ansResult;
     Button checkButton;
-    TextView userName;
+    TextView userN;
 
 
     int count=0;
@@ -40,39 +40,39 @@ public class SecondActivity extends AppCompatActivity {
         lm = (TextView)findViewById(R.id.ansLooseMotion);
         ts = (TextView)findViewById(R.id.ansTansS);
         ansResult = (TextView)findViewById(R.id.ansResult);
-        userName = (TextView)findViewById(R.id.userName);
+        userN = (TextView)findViewById(R.id.userName);
 
         Intent i = getIntent();
 
         String uname = i.getStringExtra("Pname");
-        userName.setText(uname);
+        userN.setText(uname);
 
         String ansFev = i.getStringExtra("ansFever");
-        if(ansFev == "YES"){
+        if(ansFev.equals("YES")){
             count++;
         }
         String ansR = i.getStringExtra("ansRN");
-        if(ansR == "YES"){
+        if(ansR.equals("YES")){
             count++;
         }
         String ansS = i.getStringExtra("ansST");
-        if(ansS == "YES"){
+        if(ansS.equals("YES")){
             count++;
         }
         String ansB = i.getStringExtra("ansBA");
-        if(ansB == "YES"){
+        if(ansB.equals("YES")){
             count++;
         }
         String ansH = i.getStringExtra("ansHA");
-        if(ansH == "YES"){
+        if(ansH.equals("YES")){
             count++;
         }
         String ansL = i.getStringExtra("ansLM");
-        if(ansL == "YES"){
+        if(ansL.equals("YES")){
             count++;
         }
         String ansT = i.getStringExtra("ansTS");
-        if(ansT == "YES"){
+        if(ansT.equals("YES")){
             count++;
         }
 
