@@ -1,5 +1,6 @@
 package com.mc2022.template;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     String submit = "SUBMIT";
 
     int nextCount=0;
+    int doneClick = 0;
+    int clear = 0;
+
     String ansFever;
     String ansRN;
     String ansST;
@@ -42,6 +46,84 @@ public class MainActivity extends AppCompatActivity {
     String ansTS;
     String name;
 
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("FEVER_KEY", fever);
+        outState.putString("RN_KEY", runnyNose);
+        outState.putString("ST_KEY", scratchyThroat);
+        outState.putString("BA_KEY", bodyAche);
+        outState.putString("HA_KEY", headAche);
+        outState.putString("LM_KEY", looseMotion);
+        outState.putString("TS_KEY", tasteSmell);
+//
+        outState.putString("FEVER", ansFever);
+        outState.putString("RN", ansRN);
+        outState.putString("ST", ansST);
+        outState.putString("BA", ansBA);
+        outState.putString("HA", ansHA);
+        outState.putString("LM", ansLM);
+        outState.putString("TS", ansTS);
+//
+        outState.putInt("NEXT_COUNT", nextCount);
+        outState.putInt("DONE_CLICK", doneClick);
+        outState.putInt("CLEAR", clear);
+        outState.putString("QUESTION_TEXT", questionText.getText().toString());
+        outState.putString("PERSON_NAME", personName.getText().toString());
+        outState.putString("PNAME", name);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        doneClick = savedInstanceState.getInt("DONE_CLICK");
+        clear = savedInstanceState.getInt("CLEAR");
+
+        personName.setText(savedInstanceState.getString("PERSON_NAME"));
+        questionText.setText(savedInstanceState.getString("QUESTION_TEXT"));
+
+        nextCount = savedInstanceState.getInt("NEXT_COUNT");
+
+        ansFever = savedInstanceState.getString("FEVER");
+        ansRN = savedInstanceState.getString("RN");
+        ansST = savedInstanceState.getString("ST");
+        ansBA = savedInstanceState.getString("BA");
+        ansHA = savedInstanceState.getString("HA");
+        ansLM = savedInstanceState.getString("LM");
+        ansTS = savedInstanceState.getString("TS");
+
+        fever = savedInstanceState.getString("FEVER_KEY");
+        runnyNose = savedInstanceState.getString("RN_KEY");
+        scratchyThroat = savedInstanceState.getString("ST_KEY");
+        bodyAche = savedInstanceState.getString("BA_KEY");
+        headAche = savedInstanceState.getString("HA_KEY");
+        looseMotion = savedInstanceState.getString("LM_KEY");
+        tasteSmell = savedInstanceState.getString("TS_KEY");
+
+        name = savedInstanceState.getString("PNAME");
+
+
+        if(doneClick==1 && !name.equals("") && clear==0){
+            done.setVisibility(View.GONE);
+            questionText.setVisibility(View.VISIBLE);
+            nextButton.setVisibility(View.VISIBLE);
+            clearButton.setVisibility(View.VISIBLE);
+            buttonYes.setVisibility(View.VISIBLE);
+            buttonNo.setVisibility(View.VISIBLE);
+        }
+        if(clear==1){
+            done.setVisibility(View.VISIBLE);
+            questionText.setVisibility(View.INVISIBLE);
+            nextButton.setVisibility(View.INVISIBLE);
+            clearButton.setVisibility(View.INVISIBLE);
+            buttonYes.setVisibility(View.INVISIBLE);
+            buttonNo.setVisibility(View.INVISIBLE);
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +141,44 @@ public class MainActivity extends AppCompatActivity {
         questionText = (TextView)findViewById(R.id.questionText);
         personName = (EditText)findViewById(R.id.PersonName);
 
+        name = personName.getText().toString();
+
+
+//        if(savedInstanceState != null && doneClick==1){
+//
+//            done.setVisibility(View.GONE);
+//
+//            ansFever = savedInstanceState.getString("FEVER");
+//            ansRN = savedInstanceState.getString("RN");
+//            ansST = savedInstanceState.getString("ST");
+//            ansBA = savedInstanceState.getString("BA");
+//            ansHA = savedInstanceState.getString("HA");
+//            ansLM = savedInstanceState.getString("LM");
+//            ansTS = savedInstanceState.getString("TS");
+//
+//            nextCount = savedInstanceState.getInt("NEXT_COUNT");
+//            doneClick = savedInstanceState.getInt("DONE_CLICK");
+////
+//            fever = savedInstanceState.getString("FEVER_KEY");
+//            runnyNose = savedInstanceState.getString("RN_KEY");
+//            scratchyThroat = savedInstanceState.getString("ST_KEY");
+//            bodyAche = savedInstanceState.getString("BA_KEY");
+//            headAche = savedInstanceState.getString("HA_KEY");
+//            looseMotion = savedInstanceState.getString("LM_KEY");
+//            tasteSmell = savedInstanceState.getString("TS_KEY");
+//
+//            questionText.setVisibility(View.VISIBLE);
+//            nextButton.setVisibility(View.VISIBLE);
+//            clearButton.setVisibility(View.VISIBLE);
+//            buttonYes.setVisibility(View.VISIBLE);
+//            buttonNo.setVisibility(View.VISIBLE);
+//
+//
+//        }
+
         Log.i("create","Activity main is onCreate");
 
-        name = personName.getText().toString();
+
 
 
         if(name.equals("")){
@@ -75,12 +192,13 @@ public class MainActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                doneClick = 1;
                 name = personName.getText().toString();
                 if(name.equals("")){
                     Toast.makeText(MainActivity.this, "Please enter your name", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    done.setVisibility(View.INVISIBLE);
+                    done.setVisibility(View.GONE);
                     nextCount = 0;
                     questionText.setVisibility(View.VISIBLE);
                     nextButton.setVisibility(View.VISIBLE);
@@ -114,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clear = 1;
                 nextCount = 0;
                 personName.setText("");
                 ansFever = "";
@@ -166,8 +285,9 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextCount = nextCount + 1;
-                if(nextCount == 1 && (ansFever == "YES" || ansFever == "NO") && !name.equals("")){
+               // nextCount = nextCount + 1;
+                if((ansFever == "YES" || ansFever == "NO") && !name.equals("")){
+                    nextCount = 1;
                     questionText.setText(runnyNose);
                     buttonYes.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -182,7 +302,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if(nextCount == 2 && (ansRN == "YES" || ansRN == "NO") && !name.equals("")){
+                if((ansRN == "YES" || ansRN == "NO") && !name.equals("")){
+                    nextCount = 2;
                     questionText.setText(scratchyThroat);
                     buttonYes.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -197,7 +318,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if(nextCount == 3 && (ansST == "YES" || ansST == "NO") && !name.equals("")){
+                if((ansST == "YES" || ansST == "NO") && !name.equals("")){
+                    nextCount = 3;
                     questionText.setText(bodyAche);
                     buttonYes.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -212,7 +334,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if(nextCount == 4 && (ansBA == "YES" || ansBA == "NO") && !name.equals("")){
+                if((ansBA == "YES" || ansBA == "NO") && !name.equals("")){
+                    nextCount = 4;
                     questionText.setText(headAche);
                     buttonYes.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -227,7 +350,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if(nextCount == 5 && (ansHA == "YES" || ansHA == "NO") && !name.equals("")){
+                if((ansHA == "YES" || ansHA == "NO") && !name.equals("")){
+                    nextCount = 5;
                     questionText.setText(looseMotion);
                     buttonYes.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -242,7 +366,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if(nextCount == 6 && (ansLM == "YES" || ansLM == "NO") && !name.equals("")){
+                if((ansLM == "YES" || ansLM == "NO") && !name.equals("")){
+                    nextCount = 6;
                     questionText.setText(tasteSmell);
                     buttonYes.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -259,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
                     nextButton.setText(submit);
 
                 }
-                if(nextCount >= 7 && (ansTS == "YES" || ansTS == "NO") && !name.equals("")){
+                if(nextButton.getText().toString() == submit  && (ansTS == "YES" || ansTS == "NO") && !name.equals("")){
                     Intent intent=new Intent(MainActivity.this, SecondActivity.class);
                     intent.putExtra("ansFever", ansFever);
                     intent.putExtra("ansRN", ansRN);
@@ -270,6 +395,9 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("ansTS", ansTS);
                     intent.putExtra("Pname", name);
                     startActivity(intent);
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Please select either 'YES' or 'NO'!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

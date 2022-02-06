@@ -1,10 +1,12 @@
 package com.mc2022.template;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -100,35 +102,37 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("start", "Activity second is onStart");
+        Log.i("start", "State of activity main changed from Create to Start");
         Toast.makeText(this, "State of activity main changed from Create to Start", Toast.LENGTH_SHORT).show();
     }
+
+
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("pause", "Activity second is onPause");
-        Toast.makeText(this, "State of activity main changed from Resume to Pause", Toast.LENGTH_SHORT).show();
+        Log.i("pause", "State of activity main changed from Create to Start");
+        Toast.makeText(SecondActivity.this, "State of activity main changed from Resume to Pause", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("resume", "Activity second is onResume");
+        Log.i("resume", "State of activity main changed from Start to Resume");
         Toast.makeText(this, "State of activity main changed from Start to Resume", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("stop", "Activity second is onStop");
+        Log.i("stop", "State of activity main changed from Pause to Stop");
         Toast.makeText(this, "State of activity main changed from Pause to Stop", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("destroy", "Activity second is onDestroy");
+        Log.i("destroy", "State of activity main changed from Stop to Destroy");
         Toast.makeText(this, "State of activity main changed from Stop to Destroy", Toast.LENGTH_SHORT).show();
     }
 }
