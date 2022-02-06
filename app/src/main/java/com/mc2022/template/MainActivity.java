@@ -193,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 doneClick = 1;
+                clear = 0;
                 name = personName.getText().toString();
                 if(name.equals("")){
                     Toast.makeText(MainActivity.this, "Please enter your name", Toast.LENGTH_SHORT).show();
